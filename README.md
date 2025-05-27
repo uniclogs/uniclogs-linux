@@ -10,10 +10,10 @@ Possible staring points:
 
 - RasPi distro
   - Using a laptop connected to the Internet, go to https://www.raspberrypi.com/software/operating-systems/
-    - Choose  Raspberry Pi OS (64-bit) then Raspberry Pi OS Lite to download
-  - Using the laptop, to place onto a uSD card I use Etcher - AppImage
+    - Choose  Raspberry Pi OS (64-bit) then [Raspberry Pi OS Lite](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2023-10-10/2023-10-10-raspios-bookworm-arm64-lite.img.xz?_gl=1*fugisi*_ga*NTI1MjkwMTM3LjE3MDAzNDk3MDI.*_ga_22FD70LWDS*MTcwMDM2MjIxNS4yLjEuMTcwMDM2MjI0Ni4wLjAuMA..) to download
+  - Using the laptop, to place onto a uSD card I use [Etcher - AppImage](https://github.com/balena-io/etcher/releases/tag/v1.18.13)
     - Choose the latest AppImage in the repo to download
-      - Actually there is an issue with newer versions of Etcher, and the GitHub site says that version 1.18.11 is needed. I confirmed this older version does work under Ubuntu.
+      - Actually there is an issue with newer versions of Etcher, and the GitHub site says that [version 1.18.11](https://github.com/balena-io/etcher/releases?page=2) is needed. I confirmed this older version does work under Ubuntu.
     - Make the Appimage executable
     - Double click to run
       - Depending on your laptop system, you may need to install the FUSE library
@@ -56,7 +56,7 @@ Possible staring points:
       - sudo reboot
 
     - Pass-Commander
-      - Install instructions
+      - [Install instructions](https://github.com/uniclogs/uniclogs-pass_commander#installing)
       - Collect information and configure
         - Callsign to ident with at the beginning and end of each pass
         - GPS coordinates of ground station
@@ -90,7 +90,7 @@ Possible staring points:
   - Connect the LAN connection to the AWOW.
   - Insert the USB stick just loaded with the OS into any of the USP ports on the AWOW.
   - Unless the UPD board has the Radio SBC (AWOW) power port active, remove that power connection and connect the  external power brick that came with the AOW. This powers up the AWOW for the first time.
-  - Needing to get to the AWOW BIOS, and not load the default Windows configuration, press <Del/Delete> until the BIOS screen is seen. 
+  - Needing to get to the AWOW BIOS, and not load the default Windows configuration, press <[Del/Delete](https://awowtech.com/pages/how-to-enter-bios-settings-for-awow-mini-pc-pc-stick)> until the BIOS screen is seen. 
   - Change the default boot order to start with the USB stick.
   - Press <F4> - Save and Exit
   - Now the AWOW will boot Ubuntu Server 22.04 LTS for the first time;
@@ -121,7 +121,7 @@ Possible staring points:
     - ping google.com
 
 - sudo apt update && sudo apt upgrade
-- Load UniClOGS ground station codebase for Radio SBC by following instructions here
+- Load UniClOGS ground station codebase for Radio SBC by following instructions [here](https://github.com/uniclogs/uniclogs-sdr/blob/maint-3.10/flowgraphs/README.md#basic-setup-starting-from-a-fresh-install-of-ubuntu-server-22044-lts)
 
 
 
