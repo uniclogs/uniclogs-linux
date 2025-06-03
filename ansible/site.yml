@@ -1,0 +1,9 @@
+---
+- name: Initialize hardware
+  hosts: uniclogs            # TODO: Validate hostnames
+  gather_facts: true
+  become: true
+  roles:
+    - raspberrypi
+    # - uniclogs-stationd
+    # - uniclogs-pass-commander

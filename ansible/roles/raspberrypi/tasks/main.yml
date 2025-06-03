@@ -1,0 +1,29 @@
+---
+- name: Set System Clock to UTC
+  community.general.ntp:
+    state: present
+    mode: client
+    server: 0.debian.pool.ntp.org
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Update apt packages
+  apt:
+    upgrade: safe
+    register: upgrade_result
+
+- name: Install packages
+  apt:
+    name:
+      - git
+      - i2c-tools
+      - netcat-openbsd
+      - libhamlib-utils
+    state: present
+
+- name: Display upgrade status
+  debug:
+    var: upgrade_result
