@@ -58,8 +58,12 @@ RUN /bin/bash -c '\
   esac'
 
 ENV USER=imagegen
-RUN useradd -u 4000 -ms /bin/bash "$USER" && echo "${USER}:${USER}" | chpasswd && adduser ${USER} sudo # only add to sudo if build scripts require it
+
+# TODO: Remove sudo if build scripts do not require it
+RUN useradd -u 4000 -ms /bin/bash "$USER" && echo "${USER}:${USER}" | chpasswd && adduser ${USER} sudo
 USER ${USER}
 WORKDIR /home/${USER}
 
 RUN /bin/bash -c 'cp -r /rpi-image-gen ~/'
+
+WORKDIR /home/${USER}/rpi-image-gen

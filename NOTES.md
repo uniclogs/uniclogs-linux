@@ -1,0 +1,1 @@
+./build.sh -o ~/uniclogs/uniclogs-linux.options -D ~/uniclogs/ -c uniclogs

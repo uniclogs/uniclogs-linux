@@ -1,7 +1,4 @@
-# Comments are supported
-DEVICE_HOSTNAME=uniclogs-linux
-# All variables will be translated to lower case and made available to hooks
-device_user1=uniclogs-linux
-dEvIcE_UsER1pASs=uniclogs-linux
-# Variables set in the .cfg file can be overridden
 IMAGE_NAME=uniclogs-linux
+DEVICE_HOSTNAME=uniclogs-linux
+device_user1=uniclogs-linux
+device_user1pass=uniclogs-linux
