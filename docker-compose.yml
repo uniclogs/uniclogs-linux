@@ -5,7 +5,6 @@ services:
         stdin_open: true
         tty: true
         image: rpi-imagegen:latest
-        working_dir: /home/imagegen/rpi-image-gen
         volumes:
             - ./uniclogs:/home/imagegen/uniclogs
-            - ./out:/home/imagegen/rpi-image-gen/work
+        #     - ./out:/home/imagegen/rpi-image-gen/work

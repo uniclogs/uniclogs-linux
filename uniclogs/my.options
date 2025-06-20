@@ -1,0 +1,6 @@
+# All variables will be translated to lower case and made available to hooks
+
+DEVICE_HOSTNAME=uniclogs
+device_user1=andrew
+dEvIcE_UsER1pASs=andrew
+IMAGE_NAME=uniclogs
