@@ -1,4 +1,24 @@
 # uniclogs-linux
+
+**TODO:** Clean this up before merge
+
+## Build Commands
+
+```sh
+docker compose build
+docker compose run --rm rpi_imagegen 
+```
+
+When in the container, run the following command to build the image
+
+```sh
+./build.sh -o ~/uniclogs/uniclogs.options
+```
+
+Original README content below
+--------------------------------------------------------------------------------
+
+
 **NOTE:** This is copied from the [UniClOGS v2 Main Info Doc](https://docs.google.com/document/d/1X3NJvZIJBoTSr9gLLe9Uswm0GSTiX_2NS_AyfrqKy0U/edit). These instructions are out of date and should **not be used**, they are here only as a starting point. Please fix.
 
 Possible staring points:

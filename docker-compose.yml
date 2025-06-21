@@ -1,10 +1,12 @@
 services:
     rpi_imagegen:
-        build: .
+        build: 
+            context: .
+            dockerfile: docker/Dockerfile
         privileged: true
         stdin_open: true
         tty: true
         image: rpi-imagegen:latest
+        working_dir: /home/imagegen/rpi-image-gen
         volumes:
             - ./uniclogs:/home/imagegen/uniclogs
-        #     - ./out:/home/imagegen/rpi-image-gen/work
