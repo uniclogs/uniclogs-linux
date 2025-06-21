@@ -1,6 +1,11 @@
 # All variables will be translated to lower case and made available to hooks
 
-DEVICE_HOSTNAME=uniclogs
-device_user1=andrew
-dEvIcE_UsER1pASs=andrew
-IMAGE_NAME=uniclogs
+class=pi5
+device_hostname=ucl-uniclogs
+device_user1=deleteme
+device_user1pass=deleteme
+image_name=uniclogs
+keyboard_keymap=us
+keyboard_layout="English (US)"
+locale1="en_US.UTF-8"
+timezone="UTC"

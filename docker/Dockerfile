@@ -27,10 +27,13 @@ RUN /tmp/setup-build-deps.sh
 
 # Create user
 ENV USER=imagegen
-RUN useradd -u 4000 -ms /bin/bash "$USER" && echo "${USER}:${USER}" | chpasswd && adduser ${USER} sudo
+RUN useradd -u 4000 -ms /bin/bash "$USER" \
+    && echo "${USER}:${USER}" | chpasswd \
+    && adduser ${USER} sudo
 USER ${USER}
 WORKDIR /home/${USER}
 
-# Copy rpi-image-gen tool into the user home directory and set it as working directory.
+# Copy rpi-image-gen tool into the user home directory and set it as working
+# directory.
 RUN /bin/bash -c 'cp -r /rpi-image-gen ~/'
 WORKDIR /home/${USER}/rpi-image-gen

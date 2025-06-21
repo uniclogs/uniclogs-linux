@@ -2,7 +2,7 @@
 
 **TODO:** Clean this up before merge
 
-## Build Commands
+## Helpful Commands
 
 ```sh
 docker compose build
@@ -14,6 +14,18 @@ When in the container, run the following command to build the image
 ```sh
 ./build.sh -o ~/uniclogs/uniclogs.options
 ```
+
+To copy the generated image and files from within the container , run:
+
+```sh
+docker ps
+docker cp <containerid>:/home/imagegen/rpi-image-gen/work/uniclogs/deploy /path/to/destination
+```
+
+docker ps will show you the container id. Make sure to replace `<containerid>`
+in the above command with the actual container id.
+
+
 
 Original README content below
 --------------------------------------------------------------------------------
@@ -56,6 +68,12 @@ Possible staring points:
         - Expand file system
         - Reboot
   - Login again
+
+
+
+
+
+
   - Run raspi-config again
     - sudo raspi-config
       - Interface settings
