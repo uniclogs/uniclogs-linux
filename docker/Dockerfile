@@ -1,15 +1,17 @@
 FROM debian:bookworm AS base
 
 # Install essential packages
-RUN apt-get update && apt-get install --no-install-recommends -y \
-      build-essential \
-      ca-certificates \
-      curl \
-      git \
-      gpg \
-      gpg-agent \
-      sudo \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+        build-essential \
+        ca-certificates \
+        curl \
+        git \
+        gpg \
+        gpg-agent \
+        sudo
+    #     sudo \
+    # && rm -rf /var/lib/apt/lists/*
 
 # Get raspberry pi gpg key
 RUN curl -fsSL https://archive.raspberrypi.com/debian/raspberrypi.gpg.key \

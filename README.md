@@ -12,7 +12,7 @@ docker compose run --rm rpi_imagegen
 When in the container, run the following command to build the image
 
 ```sh
-./build.sh -o ~/uniclogs/uniclogs.options
+./build.sh -D ~/uniclogs/ext_dir -c uniclogs -o ~/uniclogs/ext_dir/uniclogs.options
 ```
 
 To copy the generated image and files from within the container , run:
@@ -68,24 +68,26 @@ Possible staring points:
         - Expand file system
         - Reboot
   - Login again
-
-
-
-
-
-
   - Run raspi-config again
     - sudo raspi-config
       - Interface settings
         - ssh
         - Enable
   - Logout
-  - Place 40 pin flat cable between Station SBC and UPD. Note location of pin-1 on each side.
+
   - Update and add some basic tools that will be needed later
     - sudo apt update
       - Set the system clock if you get time related errors
     - sudo apt upgrade
     - sudo apt install git i2c-tools netcat-openbsd libhamlib-utils
+
+
+
+
+------------ // TODO: Implement steps below
+
+  - Place 40 pin flat cable between Station SBC and UPD. Note location of pin-1 on each side.
+
   - Load UniClOGS ground station codebase for
     - Stationd
       - git clone --recurse-submodules https://github.com/uniclogs/uniclogs-stationd.git

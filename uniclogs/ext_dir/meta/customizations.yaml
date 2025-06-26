@@ -1,0 +1,9 @@
+---
+name: customizations
+mmdebstrap:
+  packages:
+    - git
+    - i2c-tools
+    - netcat-openbsd
+    - libhamlib-utils
+  install-recommends: false
