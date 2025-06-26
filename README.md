@@ -12,7 +12,7 @@ docker compose run --rm rpi_imagegen
 When in the container, run the following command to build the image
 
 ```sh
-./build.sh -D ~/uniclogs/ext_dir -c uniclogs -o ~/uniclogs/ext_dir/uniclogs.options
+./build.sh -D ~/uniclogs -c uniclogs -o ~/uniclogs/uniclogs.options
 ```
 
 To copy the generated image and files from within the container , run:

@@ -9,9 +9,8 @@ RUN apt-get update \
         git \
         gpg \
         gpg-agent \
-        sudo
-    #     sudo \
-    # && rm -rf /var/lib/apt/lists/*
+        sudo \
+    && rm -rf /var/lib/apt/lists/*
 
 # Get raspberry pi gpg key
 RUN curl -fsSL https://archive.raspberrypi.com/debian/raspberrypi.gpg.key \
