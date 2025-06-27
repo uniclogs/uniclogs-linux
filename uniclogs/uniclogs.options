@@ -1,12 +1,6 @@
 # All variables will be translated to lower case and made available to hooks
 
-class=pi5
 device_hostname=ucl-uniclogs
-device_user1=deleteme
-device_user1pass=deleteme
+device_user1=psas
+device_user1pass=psas
 image_name=uniclogs
-keyboard_keymap=us
-keyboard_layout="English (US)"
-locale1="en_US.UTF-8"
-ssh_user1=y
-timezone="UTC"
