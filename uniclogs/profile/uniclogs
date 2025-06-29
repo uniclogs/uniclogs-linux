@@ -3,4 +3,10 @@
 debian/bookworm/arm64/base-apt
 rpi/debian/bookworm/apt
 customizations
+rpi/misc-utils
+rpi/base/essential
 rpi/boot-firmware
+rpi/arm64/linux-image-v8
+rpi/user-credentials
+rpi/misc-skel
+sys-apps/systemd-net-min
