@@ -81,7 +81,7 @@ development system, run:
 
 ```sh
 docker ps
-docker cp <containerid>:/home/imagegen/rpi-image-gen/work/uniclogs/deploy /path/to/destination
+docker cp <containerid>:/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy /path/to/destination
 ```
 
 docker ps will show you the container id. Make sure to replace `<containerid>`
