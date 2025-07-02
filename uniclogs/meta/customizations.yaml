@@ -4,6 +4,12 @@ mmdebstrap:
   packages:
     - git
     - i2c-tools
-    - netcat-openbsd
     - libhamlib-utils
+    - netcat-openbsd
+    - python3-hamlib
+    - python3-pip
   install-recommends: false
+  # setup-hooks:      # Could perform chroot ops here prior to pkg download/extract
+  # essential-hooks:  # Could perform chroot ops here prior to installing non-essential pkgs
+  # customize-hooks:  # Could perform ops here after the chroot is set up and all packages got installed
+  # cleanup-hooks:    # Could perform chroot ops here when cleaning up
