@@ -8,5 +8,5 @@ rpi/boot-firmware
 rpi/arm64/linux-image-v8
 rpi/user-credentials
 rpi/misc-skel
-customizations
 sys-apps/systemd-net-min
+customizations

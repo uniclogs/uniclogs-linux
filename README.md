@@ -66,7 +66,14 @@ on a development system.
 
 ### Generate an Image
 
-From within the container, run the following command to build the image:
+If running on a non-ARM host, from within the container, run the following
+command to set binfmt_misc (it will prompt for the build user's password):
+
+```sh
+sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+```
+
+Then build the image:
 
 ```sh
 ./build.sh -D ~/uniclogs -c uniclogs -o ~/uniclogs/uniclogs.options
@@ -86,9 +93,3 @@ docker cp <containerid>:/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy /p
 
 docker ps will show you the container id. Make sure to replace `<containerid>`
 in the above command with the actual container id.
-
-## 🪪 License
-
-This project is licensed under GPL v3, see the
-[LICENSE](#LICENSE)
-file for details.

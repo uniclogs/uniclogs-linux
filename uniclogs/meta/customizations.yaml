@@ -11,3 +11,4 @@ mmdebstrap:
   install-recommends: false
   customize-hooks:
     - git clone --recurse-submodules https://github.com/uniclogs/uniclogs-stationd.git $1/home/uniclogs/uniclogs-stationd
+    - git clone https://github.com/uniclogs/uniclogs-pass_commander.git $1/home/uniclogs/uniclogs-pass_commander
