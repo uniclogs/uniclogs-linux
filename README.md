@@ -6,32 +6,17 @@ tool to build images specifically for UniClOGS running on Raspberry Pi.
 
 ## 📖 Overview
 
-We needed a way to reproducibly build custom operating system images for the
-UniClOGS Ground System(s) that run on the Raspberry Pi, which uses an ARM
-processor architecture. This is a straightforward task, made even easier, by the
-[rpi-image-gen](https://github.com/raspberrypi/rpi-image-gen)
-cli tool, which allows developers to create a custom linux image through configs
-and scripts.
+This project contains a series of configs used to define the desired
+customizations for a "golden" UniClOGS Ground System OS image, which
+standardizes and simplifies the process of spinning up a UniClOGS Ground System.
 
-However, this task gets trickier when trying to build a linux image designed to
-run on ARM if the host (computer you run this project on), uses a different CPU
-architecture, like x64. The need for emulation software and cross-compilation
-arises.
-
-To mitigate most of that problem, this project uses
-[Docker](https://www.docker.com/), which spins up a container on the host
-system with an environment designed for either ARM or x64 CPUs.
-
-Inside the container, the
-[rpi-image-gen](https://github.com/raspberrypi/rpi-image-gen)
-cli tool is pulled down from github. This tool is what does the heavy lifting.
+It achieves this by leveraging the rpi-image-gen tool, which reads the config
+files in this project to produce the exact image assets specified, along with a
+software bill of materials (SBOM) file.
 
 The configuration and scripts that provision the resulting image can be found in
 the `uniclogs/` directory of this project, which is also made available for use
-inside the Docker container. After running the build script inside the container
-and copying the resulting files (sbom and the image itself) out of the
-container, the image is then ready to be written to a disk and inserted into the
-Raspberry Pi.
+inside the Docker container (where the image build process occurs).
 
 ## Getting Started
 
@@ -64,10 +49,11 @@ on a development system.
     docker compose run --rm rpi_imagegen 
     ```
 
-### Generate an Image
+### Generating an Image
 
 If running on a non-ARM host, from within the container, run the following
-command to set binfmt_misc (it will prompt for the build user's password):
+command to set binfmt_misc (it will prompt for the build user's password, which
+is `imagegen`):
 
 ```sh
 sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
@@ -81,10 +67,10 @@ Then build the image:
 
 This task will take a little time to complete.
 
-### Copy Generated Image
+### Copying the Generated Image Files
 
-To copy the generated image and files from within the container onto your
-development system, run:
+To copy the generated image and files from within the container onto the host
+system, run:
 
 ```sh
 docker ps
