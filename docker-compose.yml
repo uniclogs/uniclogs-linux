@@ -1,6 +1,6 @@
 services:
     rpi_imagegen:
-        build: 
+        build:
             context: .
             dockerfile: docker/Dockerfile
         privileged: true

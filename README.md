@@ -25,7 +25,7 @@ on a development system.
 
 ### Prerequisites
 
-- [Docker](https://docs.docker.com/desktop/)
+- [Docker](https://docs.docker.com/engine/)
 - [Docker Compose](https://docs.docker.com/compose/)
   - (This ships with Docker by default)
 
@@ -40,13 +40,13 @@ on a development system.
 2.  Use docker-compose to build the container.
 
     ```sh
-    docker compose build    
+    docker compose build
     ```
 
 3.  Run the container and remote into it.
 
     ```sh
-    docker compose run --rm rpi_imagegen 
+    docker compose run --rm rpi_imagegen
     ```
 
 ### Generating an Image
