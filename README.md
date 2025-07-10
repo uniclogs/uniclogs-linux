@@ -16,7 +16,7 @@ software bill of materials (SBOM) file.
 
 The configuration and scripts that provision the resulting image can be found in
 the `uniclogs/` directory of this project, which is also made available for use
-inside the Docker container (where the image build process occurs).
+inside the container (where the image build process occurs).
 
 ## Getting Started
 
@@ -25,9 +25,9 @@ on a development system.
 
 ### Prerequisites
 
-- [Docker](https://docs.docker.com/engine/)
-- [Docker Compose](https://docs.docker.com/compose/)
-  - (This ships with Docker by default)
+- [Podman](https://docs.podman.io/en/latest/)
+- [Podman Compose](https://github.com/containers/podman-compose)
+  - (This ships with Podman by default)
 
 ### Installation
 
@@ -37,16 +37,16 @@ on a development system.
     git clone https://github.com/uniclogs/uniclogs-linux && cd $_
     ```
 
-2.  Use docker-compose to build the container.
+2.  Use podman compose to build the container.
 
     ```sh
-    docker compose build
+    podman compose build
     ```
 
 3.  Run the container and remote into it.
 
     ```sh
-    docker compose run --rm rpi_imagegen
+    podman compose run --build rpi_imagegen bash
     ```
 
 ### Generating an Image
@@ -73,9 +73,9 @@ To copy the generated image and files from within the container onto the host
 system, run:
 
 ```sh
-docker ps
-docker cp <containerid>:/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy /path/to/destination
+podman ps
+podman cp <containerid>:/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy /path/to/destination
 ```
 
-docker ps will show you the container id. Make sure to replace `<containerid>`
+`podman ps` will show you the container id. Make sure to replace `<containerid>`
 in the above command with the actual container id.
