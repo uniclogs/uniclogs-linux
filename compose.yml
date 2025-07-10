@@ -9,4 +9,6 @@ services:
     image: rpi-imagegen:latest
     working_dir: /home/imagegen/rpi-image-gen
     volumes:
+      - ./build:/home/imagegen/build
+      - ./scripts:/home/imagegen/scripts
       - ./uniclogs:/home/imagegen/uniclogs

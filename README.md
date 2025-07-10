@@ -51,6 +51,15 @@ on a development system.
 
 ### Generating an Image
 
+The preferred way to generate an image is to run the helper script found in the
+`scripts/` directory.
+
+```sh
+./scripts/generate-image.sh
+```
+
+#### Manual Generation
+
 If running on a non-ARM host, from within the container, run the following
 command to set binfmt_misc (it will prompt for the build user's password, which
 is `imagegen`):
