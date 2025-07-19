@@ -29,40 +29,23 @@ on a development system.
 - [Podman Compose](https://github.com/containers/podman-compose)
   - (This ships with Podman by default)
 
-### Installation
-
-1.  Clone the project and change into the project directory.
-
-    ```sh
-    git clone https://github.com/uniclogs/uniclogs-linux && cd $_
-    ```
-
-2.  Use podman compose to build the container.
-
-    ```sh
-    podman compose build
-    ```
-
-3.  Run the container and remote into it.
-
-    ```sh
-    podman compose run --build rpi_imagegen bash
-    ```
-
 ### Generating an Image
 
 The preferred way to generate an image is to run the helper script found in the
-`scripts/` directory.
+root directory of this project. Upon successful generation, the image and sbom
+assets will be found in the `build/` directory.
 
 ```sh
-./scripts/generate-image.sh
+./generate.sh
 ```
+
+**NOTE:** You will be prompted for the build user's password, which is
+`imagegen`.
 
 #### Manual Generation
 
 If running on a non-ARM host, from within the container, run the following
-command to set binfmt_misc (it will prompt for the build user's password, which
-is `imagegen`):
+command to set binfmt_misc.
 
 ```sh
 sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
@@ -76,7 +59,7 @@ Then build the image:
 
 This task will take a little time to complete.
 
-### Copying the Generated Image Files
+#### Manually copying the Generated Image Files to Host
 
 To copy the generated image and files from within the container onto the host
 system, run:

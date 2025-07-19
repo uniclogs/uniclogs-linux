@@ -41,21 +41,23 @@ build_image() {
     print_info "Starting UniClOGS Linux image build..."
     print_info "This process will take some time to complete..."
 
-    if ./build.sh -D ~/uniclogs -c uniclogs -o ~/uniclogs/uniclogs.options;
+    config_dir="/home/imagegen/uniclogs"
+    options_file="$config_dir/uniclogs.options"
+
+    if ./build.sh -D "$config_dir" -c uniclogs -o "$options_file";
     then
         print_success "Image build completed successfully!"
 
-        build_dir="~/build/$(date +'%d%m%Y-%H%M%S')"
-        print_info "Creating build directory: $build_dir"
+        build_dir="/home/imagegen/build/"
 
-        if mkdir -p "$build_dir" && cd "$build_dir";
+        if cd "$build_dir";
         then
             cp -r ~/rpi-image-gen/work/rpi_uniclogs/deploy/* .
             print_success "Generated files copied to build directory."
             print_info "Build artifacts location: $build_dir"
             print_info ""
             print_info "Files generated:"
-            ls -la
+            ls -lah
         else
             print_warning "Could not create build directory. Files remain in:"
             print_info "/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy"
