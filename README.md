@@ -44,6 +44,13 @@ assets will be found in the `build/` directory.
 
 #### Manual Generation
 
+To perform manual generation, you'll need access to the container directly. You
+can get a shell inside the container by running the following command:
+
+```sh
+podman compose run --build rpi_imagegen bash
+```
+
 If running on a non-ARM host, from within the container, run the following
 command to set binfmt_misc.
 
