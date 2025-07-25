@@ -16,7 +16,7 @@ software bill of materials (SBOM) file.
 
 The configuration and scripts that provision the resulting image can be found in
 the `uniclogs/` directory of this project, which is also made available for use
-inside the Docker container (where the image build process occurs).
+inside the container (where the image build process occurs).
 
 ## Getting Started
 
@@ -25,35 +25,34 @@ on a development system.
 
 ### Prerequisites
 
-- [Docker](https://docs.docker.com/engine/)
-- [Docker Compose](https://docs.docker.com/compose/)
-  - (This ships with Docker by default)
-
-### Installation
-
-1.  Clone the project and change into the project directory.
-
-    ```sh
-    git clone https://github.com/uniclogs/uniclogs-linux && cd $_
-    ```
-
-2.  Use docker-compose to build the container.
-
-    ```sh
-    docker compose build
-    ```
-
-3.  Run the container and remote into it.
-
-    ```sh
-    docker compose run --rm rpi_imagegen
-    ```
+- [Podman](https://docs.podman.io/en/latest/)
+- [Podman Compose](https://github.com/containers/podman-compose)
+  - (This ships with Podman by default)
 
 ### Generating an Image
 
+The preferred way to generate an image is to run the helper script found in the
+root directory of this project. Upon successful generation, the image and sbom
+assets will be found in the `build/` directory.
+
+```sh
+./generate.sh
+```
+
+**NOTE:** You will be prompted for the build user's password, which is
+`imagegen`.
+
+#### Manual Generation
+
+To perform manual generation, you'll need access to the container directly. You
+can get a shell inside the container by running the following command:
+
+```sh
+podman compose run --build rpi_imagegen bash
+```
+
 If running on a non-ARM host, from within the container, run the following
-command to set binfmt_misc (it will prompt for the build user's password, which
-is `imagegen`):
+command to set binfmt_misc.
 
 ```sh
 sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
@@ -67,15 +66,15 @@ Then build the image:
 
 This task will take a little time to complete.
 
-### Copying the Generated Image Files
+#### Manually copying the Generated Image Files to Host
 
 To copy the generated image and files from within the container onto the host
 system, run:
 
 ```sh
-docker ps
-docker cp <containerid>:/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy /path/to/destination
+podman ps
+podman cp <containerid>:/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy /path/to/destination
 ```
 
-docker ps will show you the container id. Make sure to replace `<containerid>`
+`podman ps` will show you the container id. Make sure to replace `<containerid>`
 in the above command with the actual container id.
