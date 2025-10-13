@@ -25,12 +25,9 @@ on a development system.
 
 ### Prerequisites
 - [Podman Compose](https://github.com/containers/podman-compose)
-  
-#### Arch-Linux Specific
-Install the following packages:
-```bash 
-pacman -S qemu-user-static-binfmt
-```
+
+**NOTE:** If you have a non-ARM CPU you will need
+- [qemu-user-static (binfmt)](https://www.qemu.org/docs/master/about/emulation.html)
 
 ### Generating an Image
 
