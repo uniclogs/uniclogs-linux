@@ -24,10 +24,7 @@ These instructions will walk you through the process of setting up this project
 on a development system.
 
 ### Prerequisites
-
-- [Podman](https://podman.io/docs/installation)
 - [Podman Compose](https://github.com/containers/podman-compose)
-  - (This ships with Podman by default, except for Arch-Linux)
   
 #### Arch-Linux Specific
 Install the following packages:
