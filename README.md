@@ -25,9 +25,15 @@ on a development system.
 
 ### Prerequisites
 
-- [Podman](https://docs.podman.io/en/latest/)
+- [Podman](https://podman.io/docs/installation)
 - [Podman Compose](https://github.com/containers/podman-compose)
-  - (This ships with Podman by default)
+  - (This ships with Podman by default, except for Arch-Linux)
+  
+#### Arch-Linux Specific
+Install the following packages:
+```bash 
+pacman -S qemu-user-static-binfmt
+```
 
 ### Generating an Image
 
