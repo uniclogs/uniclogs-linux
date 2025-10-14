@@ -24,6 +24,7 @@ These instructions will walk you through the process of setting up this project
 on a development system.
 
 ### Prerequisites
+- [Podman](https://podman.io/docs/installation) 
 - [Podman Compose](https://github.com/containers/podman-compose)
 
 **NOTE:** If you have a non-ARM CPU you will need
