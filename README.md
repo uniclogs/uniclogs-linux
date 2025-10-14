@@ -24,10 +24,11 @@ These instructions will walk you through the process of setting up this project
 on a development system.
 
 ### Prerequisites
-
-- [Podman](https://docs.podman.io/en/latest/)
+- [Podman](https://podman.io/docs/installation) 
 - [Podman Compose](https://github.com/containers/podman-compose)
-  - (This ships with Podman by default)
+
+**NOTE:** If you have a non-ARM CPU you will need
+- [qemu-user-static (binfmt)](https://www.qemu.org/docs/master/about/emulation.html)
 
 ### Generating an Image
 

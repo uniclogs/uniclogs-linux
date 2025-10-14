@@ -18,7 +18,7 @@ main() {
     PROJECT_ROOT="$SCRIPT_DIR/.."
 
     cd "$PROJECT_ROOT"
-    exec podman compose run --remove-orphans --build rpi_imagegen bash -c "
+    exec podman compose run --build rpi_imagegen bash -c "
         /home/imagegen/scripts/generate-image.sh
     "
 }
