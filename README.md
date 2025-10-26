@@ -18,6 +18,12 @@ The configuration and scripts that provision the resulting image can be found in
 the `uniclogs/` directory of this project, which is also made available for use
 inside the container (where the image build process occurs).
 
+
+> [!NOTE]
+> If you are looking for SatNOGS configs they are in the `satnogs` folder
+> See our SatNOGS documentation [here](satnogs/README.md)
+
+
 ## Getting Started
 
 These instructions will walk you through the process of setting up this project
