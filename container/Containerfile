@@ -5,6 +5,8 @@ RUN apt-get update \
         ca-certificates \
         curl \
         git \
+        python3 \
+        python3-pip \
         sudo
 
 ARG RPIIG_GIT_SHA=4492e0ffd45fa4f1aa73924b20270bb818b54286
