@@ -10,5 +10,5 @@ mmdebstrap:
     - python3-pip
   install-recommends: false
   customize-hooks:
-    - git clone --recurse-submodules https://github.com/uniclogs/uniclogs-stationd.git $1/home/uniclogs/uniclogs-stationd
+    - pip3 download --dest $1/home/uniclogs/uniclogs-stationd uniclogs-stationd
     - git clone https://github.com/uniclogs/uniclogs-pass_commander.git $1/home/uniclogs/uniclogs-pass_commander
