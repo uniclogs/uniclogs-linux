@@ -10,6 +10,5 @@ mmdebstrap:
     - python3-pip
   install-recommends: false
   customize-hooks:
-    # TODO: Figure out a way to do this without --break-system-packages
     - pip3 install uniclogs-stationd --break-system-packages
     - git clone https://github.com/uniclogs/uniclogs-pass_commander.git $1/home/uniclogs/uniclogs-pass_commander
