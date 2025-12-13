@@ -2,7 +2,6 @@
 name: customizations
 mmdebstrap:
   packages:
-    - git
     - i2c-tools
     - libhamlib-utils
     - netcat-openbsd
@@ -11,4 +10,4 @@ mmdebstrap:
   install-recommends: false
   customize-hooks:
     - pip3 install uniclogs-stationd --break-system-packages
-    - git clone https://github.com/uniclogs/uniclogs-pass_commander.git $1/home/uniclogs/uniclogs-pass_commander
+    - pip3 install uniclogs-pass-commander --break-system-packages
