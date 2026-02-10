@@ -1,0 +1,16 @@
+build/
+*.img
+*.img.zst
+*.img.sparse.zst
+*.sbom.zst
+
+.git/
+.gitignore
+.gitattributes
+
+README.md
+LICENSE
+*.md
+
+*.log
+*.tmp
