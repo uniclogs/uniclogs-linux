@@ -12,8 +12,7 @@ mmdebstrap:
     - python3-libgpiod
     - python3-pip
   install-recommends: false
-  sync-in-hooks:
-    - sync-in overlay /etc
   customize-hooks:
     - chroot $1 pip3 install uniclogs-stationd --break-system-packages
     - chroot $1 pip3 install uniclogs-pass-commander --break-system-packages
+    - cp -r /home/imagegen/uniclogs/overlay/* $1/
