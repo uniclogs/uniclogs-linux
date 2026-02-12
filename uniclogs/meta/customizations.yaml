@@ -16,3 +16,7 @@ mmdebstrap:
     - chroot $1 pip3 install uniclogs-stationd --break-system-packages
     - chroot $1 pip3 install uniclogs-pass-commander --break-system-packages
     - cp -r /home/imagegen/uniclogs/overlay/* $1/
+    - cat /home/imagegen/uniclogs/misc/append-to-boot-config.txt >> $1/boot/firmware/config.txt
+    - chroot $1 chown -R uniclogs:uniclogs /home/uniclogs/bin
+    - chroot $1 systemctl enable rotctld.service stationd.service
+    - chroot $1 sh -c 'echo RuntimeWatchdogSec=5 >> /etc/systemd/system.conf'
