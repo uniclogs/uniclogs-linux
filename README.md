@@ -79,3 +79,13 @@ podman cp <containerid>:/home/imagegen/rpi-image-gen/work/rpi_uniclogs/deploy /p
 
 `podman ps` will show you the container id. Make sure to replace `<containerid>`
 in the above command with the actual container id.
+
+### Post-Generation Bootstrapping
+
+The following steps are necessary to complete manually in order to get Uniclogs
+Linux working.
+
+1.  Set the FTDI Serial Number in `99-serial.rules` and `rotctld.service`, which
+    can be found in /etc/udev/rules.d and `/etc/systemd/system` respectively.
+
+    This can be done with the utility script `/home/uniclogs/bin/set-ftdi-sn.sh`
