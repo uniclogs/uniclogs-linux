@@ -4,6 +4,7 @@ mmdebstrap:
   packages:
     - bc
     - build-essential
+    - gpiod
     - i2c-tools
     - libgpiod-dev
     - libhamlib-utils
