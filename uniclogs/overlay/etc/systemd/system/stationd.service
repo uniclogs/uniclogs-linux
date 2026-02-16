@@ -7,6 +7,7 @@ Wants=time-sync.target
 Restart=always
 User=uniclogs
 Group=uniclogs
+SupplementaryGroups=gpio
 WorkingDirectory=/home/uniclogs
 ExecStart=/usr/bin/python3 -m stationd --config /etc/config/stationd.ini
 ExecStartPost=/usr/bin/sleep 5
