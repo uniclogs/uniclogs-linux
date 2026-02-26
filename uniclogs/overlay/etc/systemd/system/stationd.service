@@ -1,0 +1,14 @@
+[Unit]
+Description=Station Control Daemon
+After=time-sync.target
+Wants=time-sync.target
+
+[Service]
+Restart=always
+WorkingDirectory=/home/uniclogs
+ExecStart=/usr/bin/python3 -m stationd --config /etc/config/stationd.ini
+ExecStartPost=/usr/bin/sleep 1
+ExecStartPost=/home/uniclogs/bin/stationc.sh "radio-host power on" "rotator power on"
+
+[Install]
+WantedBy=multi-user.target
