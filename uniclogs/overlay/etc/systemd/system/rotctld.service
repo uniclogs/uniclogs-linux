@@ -5,6 +5,7 @@
 Description=Rotator Control Daemon
 StopWhenUnneeded=true
 ReloadPropagatedFrom=dev-tty_FTDI_xxxxxxxx.device
+BindsTo=dev-tty_FTDI_xxxxxxxx.device
 
 [Service]
 Restart=always

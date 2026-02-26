@@ -85,7 +85,18 @@ in the above command with the actual container id.
 The following steps are necessary to complete manually in order to get Uniclogs
 Linux working.
 
-1.  Set the FTDI Serial Number in `99-serial.rules` and `rotctld.service`, which
+1.  The root filesystem needs to be expanded to use the entire disk that the OS
+    is installed on. In most commercially available linux distributions, this is
+    done automatically during installation. To achieve this:
+
+    1.  Run: `sudo raspi-config --expand-rootfs`
+    2.  The system must be rebooted for this change to take effect.
+    3.  After reboot, run `df -h` to confirm success.
+
+2.  Set the FTDI Serial Number in `99-serial.rules` and `rotctld.service`, which
     can be found in /etc/udev/rules.d and `/etc/systemd/system` respectively.
 
     This can be done with the utility script `/home/uniclogs/bin/set-ftdi-sn.sh`
+
+3.  Ensure that the chip and pin values inside `/etc/config/stationd.ini` are
+    correct for your ground station hardware configuration.

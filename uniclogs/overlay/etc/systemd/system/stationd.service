@@ -9,7 +9,6 @@ WorkingDirectory=/home/uniclogs
 ExecStart=/usr/bin/python3 -m stationd --config /etc/config/stationd.ini
 ExecStartPost=/usr/bin/sleep 5
 ExecStartPost=/home/uniclogs/bin/stationc.sh "radio-host power on" "rotator power on"
-ExecStartPost=/usr/bin/sleep 30
 
 [Install]
 WantedBy=multi-user.target
