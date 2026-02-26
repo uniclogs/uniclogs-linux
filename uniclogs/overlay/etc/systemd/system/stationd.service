@@ -7,7 +7,7 @@ Wants=time-sync.target
 Restart=always
 WorkingDirectory=/home/uniclogs
 ExecStart=/usr/bin/python3 -m stationd --config /etc/config/stationd.ini
-ExecStartPost=/usr/bin/sleep 5
+ExecStartPost=/usr/bin/sleep 1
 ExecStartPost=/home/uniclogs/bin/stationc.sh "radio-host power on" "rotator power on"
 
 [Install]
