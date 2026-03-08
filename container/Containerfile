@@ -16,17 +16,15 @@ RUN curl -L -o rpi-image-gen.tar.gz https://github.com/raspberrypi/rpi-image-gen
     && mv rpi-image-gen-${RPIIG_GIT_SHA} /rpi-image-gen \
     && rm rpi-image-gen.tar.gz
 
-RUN <<EOF
-arch=$(uname -m);
-if [ "$arch" != "aarch64" ] || [ "$arch" != "arm64" ]; then
-    apt-get install --no-install-recommends -y qemu-user-static;
+RUN arch=$(uname -m) \
     # the binfmt_misc check in install_deps.sh will fail since it is not
     # mounted; suppress the error.
-    /rpi-image-gen/install_deps.sh || true;
-else
-    /rpi-image-gen/install_deps.sh;
-fi
-EOF
+    && if [ "$arch" != "aarch64" ] || [ "$arch" != "arm64" ]; then \
+        apt-get install --no-install-recommends -y qemu-user-static \
+        && /rpi-image-gen/install_deps.sh || true; \
+    else \
+        /rpi-image-gen/install_deps.sh; \
+    fi
 
 ENV USER=imagegen
 RUN useradd -u 4000 -ms /bin/bash "$USER" \

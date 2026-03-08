@@ -18,9 +18,15 @@ main() {
     PROJECT_ROOT="$SCRIPT_DIR/.."
 
     cd "$PROJECT_ROOT"
-    exec podman compose run --build rpi_imagegen bash -c "
-        /home/imagegen/scripts/generate-image.sh
-    "
+
+    sudo podman run --rm --privileged docker.io/multiarch/qemu-user-static --reset -p yes -c yes
+    sudo podman build -t rpi-imagegen:latest -f container/Containerfile .
+
+    mkdir -p "$PROJECT_ROOT/build"
+    sudo chmod 777 "$PROJECT_ROOT/build"
+
+    print_info "Running image generation (requires sudo for privileged operations) ..."
+    exec sudo podman compose run --rm rpi_imagegen bash -c "/home/imagegen/scripts/generate-image.sh"
 }
 
 main "$@"

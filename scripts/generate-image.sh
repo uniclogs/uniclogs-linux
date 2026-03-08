@@ -25,15 +25,31 @@ print_error() {
 }
 
 mount_binfmt_misc() {
+    if [ -f /proc/sys/fs/binfmt_misc/status ] 2>/dev/null;
+    then
+        print_info "binfmt_misc is already available."
+        return 0
+    fi
+
     print_info "Mounting binfmt_misc ..."
     print_warning "Enter the imagegen user's password (imagegen)!"
 
-    if sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc;
+    mount_output=$(sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc 2>&1)
+    mount_status=$?
+
+    if [ $mount_status -eq 0 ];
     then
         print_success "binfmt_misc mounted successfully."
     else
-        print_error "Failed to mount binfmt_misc."
-        exit 1
+        if echo "$mount_output" | grep -iq "already mounted" || [ -f /proc/sys/fs/binfmt_misc/status ];
+        then
+            print_info "binfmt_misc is already mounted."
+            return 0
+        else
+            print_error "Failed to mount binfmt_misc."
+            echo "$mount_output"
+            exit 1
+        fi
     fi
 }
 
