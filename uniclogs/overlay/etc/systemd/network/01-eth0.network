@@ -1,0 +1,5 @@
+[Match]
+Name=en* eth*
+
+[Network]
+Address=10.10.1.5/24
