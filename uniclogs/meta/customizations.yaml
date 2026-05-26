@@ -4,16 +4,20 @@ mmdebstrap:
   packages:
     - bc
     - build-essential
+    - dbus
     - fdisk
     - gpiod
     - i2c-tools
+    - iproute2
     - libgpiod-dev
     - libhamlib-utils
     - netcat-openbsd
+    - net-tools
     - python3-dev
     - python3-hamlib
     - python3-libgpiod
     - python3-pip
+    - vim
   install-recommends: false
   customize-hooks:
     - chroot $1 raspi-config nonint do_i2c 0
@@ -23,5 +27,5 @@ mmdebstrap:
     - cat /home/imagegen/uniclogs/misc/append-to-boot-config.txt >> $1/boot/firmware/config.txt
     - chroot $1 chown -R uniclogs:uniclogs /home/uniclogs/bin
     - chroot $1 usermod -a -G gpio uniclogs
-    - chroot $1 systemctl enable rotctld.service stationd.service
+    - chroot $1 systemctl enable rotctld.service stationd.service systemd-networkd.service
     - chroot $1 sh -c 'echo RuntimeWatchdogSec=5 >> /etc/systemd/system.conf'
